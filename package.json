@@ -5,13 +5,15 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^22.7.4",
+    "dayjs": "^1.11.13",
     "markdown-it-mathjax3": "^4.3.2",
     "vitepress": "^1.3.4",
     "vitepress-plugin-rss": "^0.2.10"
   },
   "scripts": {
-    "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "new": "node new-daily.mjs",
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
   }
 }

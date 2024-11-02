@@ -1,25 +1,10 @@
-import { defineConfig } from 'vitepress';
+import { defineConfig, DefaultTheme } from 'vitepress';
 import { RSSOptions, RssPlugin } from 'vitepress-plugin-rss';
-import fs from 'fs';
+import getArticles from './articles.mts';
+import getSidebar from './sidebar.mjs';
 
-let articles: string[] = [];
-fs.readdirSync('./daily').forEach(file => {
-  if (file !== 'index.md') {
-    articles.push(file.slice(0, file.length - 3));  // remove suffix '.md'
-  }
-});
-articles.sort();
-let sidebar: { text: string, items: { text: string, link: string; }[]; }[] = [];
-articles.forEach(article => {
-  let month = article.slice(0, article.lastIndexOf('-'));
-  if (sidebar.length == 0 || sidebar[sidebar.length - 1].text != month) {
-    sidebar.push({ text: month, items: [] });
-  }
-  sidebar[sidebar.length - 1].items.push({
-    text: article,
-    link: `/daily/${article}`
-  });
-});
+let articles = getArticles('src');
+const sidebar = getSidebar(articles);
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -29,7 +14,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Latest', link: `/daily/${articles[articles.length - 1]}` }
+      { text: 'Latest', link: `/${articles[articles.length - 1]}` }
     ],
 
     sidebar,
@@ -55,5 +40,6 @@ export default defineConfig({
     lineNumbers: true,
     math: true
   },
-  cleanUrls: true
+  cleanUrls: true,
+  srcDir: 'src',
 });

@@ -1,20 +1,16 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 title: 败犬日报
 layout: home
-
 hero:
-  name: "败犬日报"
-#   text: "Underdog Daily"
+  name: 败犬日报
   tagline: 老八可爱
   actions:
     - theme: brand
       text: 进入
-      link: /daily
+      link: 2024/11/01
   image:
     src: /favicon.jpg
     alt: 老八可爱
-
 publish: false
 navbar: true
 ---
