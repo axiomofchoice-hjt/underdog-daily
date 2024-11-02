@@ -36,7 +36,10 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/axiomofchoice-hjt/underdog-daily' }
-    ]
+    ],
+    search: {
+      provider: 'local'
+    }
   },
   vite: {
     plugins: [
