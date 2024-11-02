@@ -21,7 +21,10 @@ function recurse(dir, root) {
 recurse('src', 'src');
 let date = dayjs(latest.replace('.md', '')).add(1, 'day');
 fs.mkdirSync("src/" + date.format("YYYY/MM"), { recursive: true });
-fs.writeFileSync('src/' + date.format("YYYY/MM/DD") + ".md", `---\ntitle: 败犬日报 ${date.format("YYYY-MM-DD")}\n---\n\n# {{ $frontmatter.title }}\n\n[[toc]]\n`);
+const file = 'src/' + date.format("YYYY/MM/DD") + ".md";
+fs.writeFileSync(file, `---\ntitle: 败犬日报 ${date.format("YYYY-MM-DD")}\n---\n\n# {{ $frontmatter.title }}\n\n[[toc]]\n`);
+console.log(path.resolve(file));
+
 const str = fs.readFileSync('src/index.md', { encoding: 'utf8' });
 let m = matter(str);
 m.data.hero.actions[0].link = date.format("YYYY/MM/DD");
