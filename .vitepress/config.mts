@@ -24,6 +24,10 @@ export default defineConfig({
     ],
     search: {
       provider: 'local'
+    },
+    footer: {
+      message: 'Released under the <a href="https://github.com/axiomofchoice-hjt/underdog-daily/blob/main/LICENSE">MIT License</a>.',
+      copyright: 'Copyright © 2024-present <a href="https://github.com/axiomofchoice-hjt">Axiomofchoice-hjt</a>'
     }
   },
   vite: {
