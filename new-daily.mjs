@@ -3,29 +3,56 @@ import fs from 'fs';
 import path from 'path';
 import dayjs from 'dayjs';
 
-var latest = "";
-
-function recurse(dir, root) {
-  const stats = fs.statSync(dir);
-  if (stats.isDirectory()) {
-    const files = fs.readdirSync(dir);
-    for (const file of files) {
-      recurse(path.join(dir, file), root);
+function getLatest() {
+  let latest = "";
+  function recurse(dir, root) {
+    const stats = fs.statSync(dir);
+    if (stats.isDirectory()) {
+      const files = fs.readdirSync(dir);
+      for (const file of files) {
+        recurse(path.join(dir, file), root);
+      }
+    }
+    if (stats.isFile() && dir.endsWith(".md") && path.basename(dir) !== 'index.md') {
+      if (latest < dir) { latest = dir; }
     }
   }
-  if (stats.isFile() && dir.endsWith(".md") && path.basename(dir) !== 'index.md') {
-    if (latest < dir) { latest = dir; }
-  }
+  recurse('src', 'src');
+  return latest;
 }
 
-recurse('src', 'src');
-let date = dayjs(latest.replace('.md', '')).add(1, 'day');
-fs.mkdirSync("src/" + date.format("YYYY/MM"), { recursive: true });
-const file = 'src/' + date.format("YYYY/MM/DD") + ".md";
-fs.writeFileSync(file, `---\ntitle: 败犬日报 ${date.format("YYYY-MM-DD")}\n---\n\n# {{ $frontmatter.title }}\n\n[[toc]]\n`);
-console.log(path.resolve(file));
-
-const str = fs.readFileSync('src/index.md', { encoding: 'utf8' });
-let m = matter(str);
-m.data.hero.actions[0].link = date.format("YYYY/MM/DD");
-fs.writeFileSync('src/index.md', matter.stringify(m.content, m.data), { encoding: 'utf8' });
+var yesterday = dayjs(getLatest().replace('.src', '').replace('.md', ''));
+var today = yesterday.add(1, 'day');
+// update src/<yesterday>.md
+{
+  const file = 'src/' + yesterday.format("YYYY/MM/DD") + ".md";
+  const str = fs.readFileSync(file, { encoding: 'utf8' });
+  let mat = matter(str);
+  mat.data.next = {
+    text: '败犬日报 ' + today.format("YYYY-MM-DD"),
+    link: today.format("YYYY/MM/DD")
+  };
+  fs.writeFileSync(file, matter.stringify(mat.content, mat.data), { encoding: 'utf8' });
+}
+// create src/<today>.md
+{
+  const file = 'src/' + today.format("YYYY/MM/DD") + ".md";
+  fs.mkdirSync("src/" + today.format("YYYY/MM"), { recursive: true });
+  fs.writeFileSync(file, matter.stringify('\n# {{ $frontmatter.title }}\n\n[[toc]]\n', {
+    title: '败犬日报 ' + today.format("YYYY-MM-DD"),
+    prev: {
+      text: '败犬日报 ' + yesterday.format("YYYY-MM-DD"),
+      link: yesterday.format("YYYY/MM/DD")
+    },
+    next: false
+  }), { encoding: 'utf8' });
+  console.log(path.resolve(file));
+}
+// update src/index.md
+{
+  const file = 'src/index.md';
+  const str = fs.readFileSync(file, { encoding: 'utf8' });
+  let mat = matter(str);
+  mat.data.hero.actions[0].link = today.format("YYYY/MM/DD");
+  fs.writeFileSync(file, matter.stringify(mat.content, mat.data), { encoding: 'utf8' });
+}
