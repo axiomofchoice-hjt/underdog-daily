@@ -1,5 +1,1 @@
----
-publish: false
----
-
 # underdog-daily
