@@ -14,14 +14,14 @@ function getLatest() {
       }
     }
     if (stats.isFile() && dir.endsWith(".md") && path.basename(dir) !== 'index.md') {
-      if (latest < dir) { latest = dir; }
+      if (latest < dir) { latest = path.relative(root, dir.slice(0, -3)).replaceAll('\\', '/'); }
     }
   }
   recurse('src', 'src');
   return latest;
 }
 
-var yesterday = dayjs(getLatest().replace('.src', '').replace('.md', ''));
+var yesterday = dayjs(getLatest());
 var today = yesterday.add(1, 'day');
 // update src/<yesterday>.md
 {

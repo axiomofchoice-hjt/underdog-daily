@@ -11,7 +11,7 @@ function recurse(dir: string, root: string): string[] {
     }
   }
   if (stats.isFile() && dir.endsWith(".md")) {
-    result.push(path.relative(root, dir.slice(0, -3)));
+    result.push(path.relative(root, dir.slice(0, -3)).replaceAll('\\', '/'));
   }
   return result;
 }
