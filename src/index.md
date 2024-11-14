@@ -7,7 +7,7 @@ hero:
   actions:
     - theme: brand
       text: 进入
-      link: 2024/11/13
+      link: 2024/11/14
   image:
     src: /favicon.jpg
     alt: 老八可爱
