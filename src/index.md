@@ -14,4 +14,25 @@ hero:
 publish: false
 ---
 
-日报内容来自败犬群讨论，只收录技术相关内容。编程语言默认 C++。
+## 欢迎来到败犬日报
+
+败犬日报专注于 C++ 及其他计算机技术，为每一个技术爱好者分享败犬群**高质量**话题。
+
+***
+
+<VPTeamMembers size="small" :members="members"/>
+
+<script setup>
+import { VPTeamMembers } from 'vitepress/theme'
+
+const members = [
+  {
+    avatar: 'https://github.com/axiomofchoice-hjt.png',
+    name: 'Axiomofchoice-hjt',
+    title: 'Author',
+    links: [
+      { icon: 'github', link: 'https://github.com/axiomofchoice-hjt' },
+    ]
+  },
+]
+</script>
