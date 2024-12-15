@@ -24,25 +24,10 @@ publish: false
 
 [10 月](2024/10/)，[11 月](2024/11/)
 
+## 败犬群
+
+[786115408](https://qm.qq.com/q/NCJmtSyaoq)。
+
 ***
 
 LOGO 来源：[B 站 up 主狸花在画画](https://space.bilibili.com/244937198)
-
-***
-
-<VPTeamMembers size="small" :members="members"/>
-
-<script setup>
-import { VPTeamMembers } from 'vitepress/theme'
-
-const members = [
-  {
-    avatar: 'https://github.com/axiomofchoice-hjt.png',
-    name: 'Axiomofchoice-hjt',
-    title: 'Author',
-    links: [
-      { icon: 'github', link: 'https://github.com/axiomofchoice-hjt' },
-    ]
-  },
-]
-</script>
