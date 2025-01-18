@@ -3,6 +3,19 @@ import fs from 'fs';
 import path from 'path';
 import dayjs from 'dayjs';
 
+function isNumericString(str) {
+  for (let i = 0; i < str.length; i++) {
+    if (str.charCodeAt(i) < 48 || str.charCodeAt(i) > 57) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function isNumericFileName(str) {
+  return isNumericString(path.basename(str));
+}
+
 function getLatest() {
   let latest = "";
   function recurse(dir, root) {
@@ -13,7 +26,7 @@ function getLatest() {
         recurse(path.join(dir, file), root);
       }
     }
-    if (stats.isFile() && dir.endsWith(".md") && path.basename(dir) !== 'index.md') {
+    if (stats.isFile() && dir.endsWith(".md") && isNumericFileName(dir)) {
       if (latest < dir) { latest = path.relative(root, dir.slice(0, -3)).replaceAll('\\', '/'); }
     }
   }
