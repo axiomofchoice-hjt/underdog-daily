@@ -1,5 +1,7 @@
 ---
 title: 败犬のC++每月精选 2024-11
+prev: false
+next: false
 ---
 
 # {{ $frontmatter.title }}
