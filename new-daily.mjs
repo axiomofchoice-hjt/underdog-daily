@@ -13,7 +13,7 @@ function isNumericString(str) {
 }
 
 function isNumericFileName(str) {
-  return isNumericString(path.basename(str));
+  return isNumericString(path.basename(str, path.extname(str)));
 }
 
 function getLatest() {

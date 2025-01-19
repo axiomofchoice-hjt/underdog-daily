@@ -26,6 +26,7 @@ function isNumericString(str: string): boolean {
 }
 
 function isNumericFileName(str: string): boolean {
+  // 这里 .md 已经被移除了，直接用 basename
   return isNumericString(path.basename(str));
 }
 
