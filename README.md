@@ -3,7 +3,7 @@
 
 每日推送！
 
-[underdog-daily.pages.dev](underdog-daily.pages.dev)
+[makeinu-daily.pages.dev](makeinu-daily.pages.dev)
 
 # Q&A
 

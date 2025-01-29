@@ -30,7 +30,7 @@ next: false
 
 关于第一点开销，function 和 any 一样可能有小对象优化（libc++ 是 ≤16B）。除此之外编译器很难对此进行优化。
 
-递归最好只用 lambda 完成，具体做法在 [败犬日报 2024-10-08](https://underdog-daily.pages.dev/2024/10/08) 介绍过。
+递归最好只用 lambda 完成，具体做法在 [败犬日报 2024-10-08](https://makeinu-daily.pages.dev/2024/10/08) 介绍过。
 
 ## 4. `std::hive` 容器
 

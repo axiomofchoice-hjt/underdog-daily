@@ -9,7 +9,7 @@ const sidebar = getSidebar(articles);
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "败犬日报",
-  description: "C++ Underdog Daily",
+  description: "C++ Makeinu Daily",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -20,13 +20,13 @@ export default defineConfig({
     sidebar,
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/axiomofchoice-hjt/underdog-daily' }
+      { icon: 'github', link: 'https://github.com/axiomofchoice-hjt/makeinu-daily' }
     ],
     search: {
       provider: 'local'
     },
     footer: {
-      message: 'Released under the <a href="https://github.com/axiomofchoice-hjt/underdog-daily/blob/main/LICENSE">MIT License</a>.',
+      message: 'Released under the <a href="https://github.com/axiomofchoice-hjt/makeinu-daily/blob/main/LICENSE">MIT License</a>.',
       copyright: 'Copyright © 2024-present <a href="https://github.com/axiomofchoice-hjt">Axiomofchoice-hjt</a>'
     }
   },
@@ -34,7 +34,7 @@ export default defineConfig({
     plugins: [
       RssPlugin({
         title: '败犬日报',
-        baseUrl: 'https://underdog-daily.pages.dev',
+        baseUrl: 'https://makeinu-daily.pages.dev',
         copyright: 'Copyright (c) 2024-present, 败犬日报',
         description: 'C++ 败犬日报',
       })
