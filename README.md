@@ -2,7 +2,7 @@
 
 每日推送！
 
-[makeinu-daily.pages.dev](makeinu-daily.pages.dev)
+<https://makeinu-daily.pages.dev>
 
 ## Q&A
 

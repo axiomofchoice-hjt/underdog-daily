@@ -80,11 +80,11 @@ Derived(Derived const& d) : Base(static_cast<Base const&>(d)), y(d.y) {}
 
 但是这里的切片发生在构造函数中，显得有点奇怪，应该是检查工具的错报。
 
-推荐阅读：[https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#es63-dont-slice](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#es63-dont-slice)
+推荐阅读：<https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#es63-dont-slice>
 
 ## 3. copy-and-swap idiom
 
-[https://stackoverflow.com/questions/3279543/what-is-the-copy-and-swap-idiom](https://stackoverflow.com/questions/3279543/what-is-the-copy-and-swap-idiom)
+<https://stackoverflow.com/questions/3279543/what-is-the-copy-and-swap-idiom>
 
 ```cpp
 T& operator=(T other) {
@@ -174,7 +174,7 @@ int main() {
 
 早期对分支的语义检查时机是在模板实例化前，CWG2518 把这个时机往后挪了，所以较新版本的编译器可以直接 `static_assert(false)`。
 
-但如果是较旧的编译器（GCC 12 及以下），可以在 `if constexpr` 放进模板的基础上，使用惰性求值的方法，[https://zh.cppreference.com/w/cpp/language/if](https://zh.cppreference.com/w/cpp/language/if) 有记载：
+但如果是较旧的编译器（GCC 12 及以下），可以在 `if constexpr` 放进模板的基础上，使用惰性求值的方法，<https://zh.cppreference.com/w/cpp/language/if> 有记载：
 
 ```cpp
 template<typename>
@@ -213,7 +213,7 @@ int main() {
 
 可以删掉这个构造函数或者构造函数加上 constexpr。
 
-[https://zh.cppreference.com/w/cpp/named_req/LiteralType](https://zh.cppreference.com/w/cpp/named_req/LiteralType)
+<https://zh.cppreference.com/w/cpp/named_req/LiteralType>
 
 ## 9. 为什么要区分 xvalue 和 prvalue
 
@@ -255,7 +255,7 @@ C 使用 goto 是合理的，因为没有异常也没有 RAII，还要管理资�
 
 ## 12. 为什么不能在类中初始化静态成员变量
 
-ODR 问题，详见 [https://zh.cppreference.com/w/cpp/language/definition](https://zh.cppreference.com/w/cpp/language/definition)。
+ODR 问题，详见 <https://zh.cppreference.com/w/cpp/language/definition>。
 
 静态成员变量是声明，不能是定义，否则在多个编译单元里就会有多个定义。
 
@@ -294,4 +294,4 @@ int main() {
 
 这是因为函数形参的生命周期是在函数末尾结束还是在全表达式末尾结束，这个东西是实现定义的。
 
-[https://wg21.link/cwg2850](https://wg21.link/cwg2850)
+<https://wg21.link/cwg2850>

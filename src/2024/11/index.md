@@ -38,7 +38,7 @@ struct Creature {
 
 "pass-by-value and move" 相比之下会多一次移动，但是写起来更简洁，适用于移动开销小的类型。
 
-[https://stackoverflow.com/questions/51705967/advantages-of-pass-by-value-and-stdmove-over-pass-by-reference](https://stackoverflow.com/questions/51705967/advantages-of-pass-by-value-and-stdmove-over-pass-by-reference)
+<https://stackoverflow.com/questions/51705967/advantages-of-pass-by-value-and-stdmove-over-pass-by-reference>
 
 ## 2. `std::vector<bool>` 的坑
 
@@ -68,13 +68,13 @@ f<bool>();
 
 标准委员会为了推销他们的特化，证明特化是多有用的一个特性的产物。结果就成了这样。
 
-[https://en.cppreference.com/w/cpp/container/vector_bool](https://en.cppreference.com/w/cpp/container/vector_bool)
+<https://en.cppreference.com/w/cpp/container/vector_bool>
 
 ***
 
 目前编译器没有提供检查 `vector<bool>` 的功能。
 
-[https://reviews.llvm.org/D29118](https://reviews.llvm.org/D29118) 有人做过，但是因为这个实现检查不了模板实例化时产生 `vector<bool>` 所以没合。
+<https://reviews.llvm.org/D29118> 有人做过，但是因为这个实现检查不了模板实例化时产生 `vector<bool>` 所以没合。
 
 ## 3. 性能比较 `vec.emplace_back(x)` 和 `vec[x]`
 
@@ -103,7 +103,7 @@ for (size_t i = 0; i < size; i++) {
 
 最容易让编译器优化的写法可能是：`resize` 后拿到 `vec.data()` 指针，直接操作指针。这样操作就不经过 vector 的成员函数。（群友表示经常这么干）
 
-[https://johnnysswlab.com/what-is-faster-vec-emplace_backx-or-vecx/](https://johnnysswlab.com/what-is-faster-vec-emplace_backx-or-vecx/)
+<https://johnnysswlab.com/what-is-faster-vec-emplace_backx-or-vecx/>
 
 ## 4. `std::map` 用 float 做为 key
 
@@ -136,7 +136,7 @@ int main() {
 
 这里的 lambda 有两种签名（参数是 int 和 double），因此会有两个静态变量实例。
 
-可以把代码塞给 [https://cppinsights.io/](https://cppinsights.io/) 看看 lambda 的行为。
+可以把代码塞给 <https://cppinsights.io/> 看看 lambda 的行为。
 
 ## 6. 状态模板元编程 STMP
 
@@ -209,7 +209,7 @@ template <typename... Ts>
 using A = Tint<Ts...>;
 ```
 
-[https://wg21.link/cwg1430](https://wg21.link/cwg1430)
+<https://wg21.link/cwg1430>
 
 由于 C++ 规定，别名（using）不能产生任何新的符号，所以在实例化之前就得全替换掉。但是包参数（`typename... Ts`）展开到非包参数（`int`）上就没法做这样的替换。
 
@@ -227,13 +227,13 @@ using A = Tint<Ts...>;
 
 模板的 name mangling 一个误解是 mangling 的类型是在整个模板替换完之后，把最终的类型给 mangling 了。但是实际上不是的。
 
-[https://godbolt.org/z/f46zKo31b](https://godbolt.org/z/f46zKo31b) 这里是直接 mangling 这个完全限定的特化类型。
+<https://godbolt.org/z/f46zKo31b> 这里是直接 mangling 这个完全限定的特化类型。
 
 ## 10. 编译期笛卡尔积
 
 比如 `std::tuple A {m, n}, std::tuple A {o, p, q}, std::tuple A {x, y, z}` 然后生成 `std::tuple<std::tuple<m, o, x>, ...>` 这个类型。
 
-这个还是比较麻烦的，群友提供了实现 [https://godbolt.org/z/en34P95cq](https://godbolt.org/z/en34P95cq)。
+这个还是比较麻烦的，群友提供了实现 <https://godbolt.org/z/en34P95cq>。
 
 ## 11. `unique_ptr` 能不能看情况决定是否析构
 
@@ -280,7 +280,7 @@ void unreachable() {
 
 这是 clang 的一个 bug，clang 没给 main 生成一行代码，导致 main 函数地址和下面那个函数重叠了。现在已经修了。
 
-那么无副作用的死循环是 UB 吗，这个之前一直有争议，p2809r0 已经确定不是 UB 了。[https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2809r0.html](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2809r0.html)
+那么无副作用的死循环是 UB 吗，这个之前一直有争议，p2809r0 已经确定不是 UB 了。<https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2809r0.html>
 
 ## 13. 性能是怎么分析的
 
@@ -323,7 +323,7 @@ void unreachable() {
 
 ## 14. 有没有比 mt19937 更快的伪随机数算法
 
-这里列举了亿些算法：[https://www.pcg-random.org/](https://www.pcg-random.org/)
+这里列举了亿些算法：<https://www.pcg-random.org/>
 
 一个简单的例子就是 LCG（线性同余生成器），但是几乎没有安全性，只有快。
 

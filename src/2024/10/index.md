@@ -14,7 +14,7 @@ next:
 
 ![img](/img/2024-10-16-0.png)
 
-完整 benchmark 见 [https://www.boost.org/doc/libs/develop/libs/unordered/doc/html/unordered.html#benchmarks_boostconcurrent_flat_map](https://www.boost.org/doc/libs/develop/libs/unordered/doc/html/unordered.html#benchmarks_boostconcurrent_flat_map)
+完整 benchmark 见 <https://www.boost.org/doc/libs/develop/libs/unordered/doc/html/unordered.html#benchmarks_boostconcurrent_flat_map>
 
 boost 的项目足够新，后发优势，可以抄其他项目的优秀设计，flat_hashmap 性能可能是知名实现里最好的。
 
@@ -56,7 +56,7 @@ $p \le 1.618$ 就是这么来的。
 
 ## 3. 两个在不同命名空间，但是字段完全一样的结构体，可以直接强制类型转换吗
 
-[https://zh.cppreference.com/w/cpp/language/reinterpret_cast](https://zh.cppreference.com/w/cpp/language/reinterpret_cast)：“在实际上不代表适当类型的对象的泛左值（例如通过 reinterpret_cast 所获得）上进行代表非静态数据成员或非静态成员函数的成员访问将导致未定义行为。”
+<https://zh.cppreference.com/w/cpp/language/reinterpret_cast>：“在实际上不代表适当类型的对象的泛左值（例如通过 reinterpret_cast 所获得）上进行代表非静态数据成员或非静态成员函数的成员访问将导致未定义行为。”
 
 虽然是未定义行为但也不会出什么问题。最好可以 bitcast / memcpy，这是标准行为。
 
@@ -93,7 +93,7 @@ int main() {
 
 因为那会确实差距不算大吧，而且还有各种 cache line 不一样所以考虑 cache oblivious 的情况。
 
-[https://colin-scott.github.io/personal_website/research/interactive_latency.html](https://colin-scott.github.io/personal_website/research/interactive_latency.html)
+<https://colin-scott.github.io/personal_website/research/interactive_latency.html>
 
 一个底层的东西一般得好几年才会被上面的感觉到。
 
@@ -125,7 +125,7 @@ glibc 这样的库，它的 malloc 依赖它里面定义的全局变量状态；
 
 ***
 
-扩展阅读：[https://zhuanlan.zhihu.com/p/692886292](https://zhuanlan.zhihu.com/p/692886292)
+扩展阅读：<https://zhuanlan.zhihu.com/p/692886292>
 
 ## 7. Java 能不能鸭子类型
 

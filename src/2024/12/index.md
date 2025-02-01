@@ -16,7 +16,7 @@ next:
 
 安全，这个和 `const auto &t = T{};` 是一个道理，引用延长了生命周期。
 
-[https://zh.cppreference.com/w/cpp/language/lifetime](https://zh.cppreference.com/w/cpp/language/lifetime) 里有记载：
+<https://zh.cppreference.com/w/cpp/language/lifetime> 里有记载：
 
 > 可以通过绑定到引用来延长临时对象的生存期，细节见引用初始化。
 
@@ -44,7 +44,7 @@ next:
 
 实现原理：块状链表、跳跃域、空闲链表。
 
-推荐阅读：[https://zhuanlan.zhihu.com/p/11456846151](https://zhuanlan.zhihu.com/p/11456846151)
+推荐阅读：<https://zhuanlan.zhihu.com/p/11456846151>
 
 ## 5. 一个经典错误：`std::vector` 扩容导致引用失效
 
@@ -105,13 +105,13 @@ int main() {
 
 为什么不直接编译错误？答案是允许 D 私有继承 B，B 公开继承 `std::enable_shared_from_this` 这种情况。[stackoverflow](https://stackoverflow.com/questions/56529757/why-does-enable-shared-from-this-crash-if-inheritance-is-not-public-instead-of-e)
 
-检查可以用 clang tidy：[https://github.com/llvm/llvm-project/pull/102299](https://github.com/llvm/llvm-project/pull/102299)。
+检查可以用 clang tidy：<https://github.com/llvm/llvm-project/pull/102299>。
 
 ## 8. C++ module 可以用了吗
 
 可以，推荐使用 clang，正常使用已经没问题。
 
-主流支持 module 进度遥遥无期，可以在这看进度 [https://arewemodulesyet.org/](https://arewemodulesyet.org/)。但是 module 可以和头文件一起使用，从而规避问题。
+主流支持 module 进度遥遥无期，可以在这看进度 <https://arewemodulesyet.org/>。但是 module 可以和头文件一起使用，从而规避问题。
 
 对于编译速度有追求的用户可以使用 module，因为本来他们就已经使用 PCH（预编译头）来加速编译了，module 是 PCH 的超级加强版。PCH 只能线性依赖，module 可以是有向无环图。
 
