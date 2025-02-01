@@ -1,6 +1,8 @@
 ---
 title: 败犬のC++每月精选 2025-01
-prev: false
+prev:
+    text: 败犬のC++每月精选 2024-12
+    link: /2024/12
 next: false
 ---
 
