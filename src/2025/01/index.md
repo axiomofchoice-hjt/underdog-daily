@@ -101,7 +101,7 @@ T& operator=(T other) {
 
 通过开源项目获取用户，获取影响力，从而可以通过其他方式盈利。
 
-例如 oracle 开源 mysql，mysql 用户迁移到 oracle 就容易。
+例如 oracle 维护开源软件 mysql，mysql 用户数量多了就可以推广相关服务。
 
 ## 5. 面试：程序运行发生了死循环怎么定位
 
